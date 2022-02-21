@@ -12,6 +12,7 @@ const routes = [
     },
     {
         path: '/account/:id',
+        name: 'userPage',
         component:()=>import('@/components/UserPage.vue')
     }
 ]

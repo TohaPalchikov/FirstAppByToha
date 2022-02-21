@@ -2,7 +2,7 @@
   <div id="myModalEdit" class="modal">
     <div class="modal-content">
       <div>
-        <span class="close">&times;</span>
+        <span class="close" @click="closeModalWindow">&times;</span>
         <h2 style="text-align: center">Edit account</h2>
         <hr />
         <br />
@@ -67,6 +67,7 @@
           <h3>Expiration date</h3>
           <input
             type="date"
+            :min="startDate"
             v-model="v$.expirationDate.$model"
             :class="
               { invalid: v$.expirationDate.$error } || {
@@ -121,7 +122,7 @@ export default {
       expirationDate: this.eD,
     };
   },
-  props: ["i","n", "a", "e", "s", "sD", "eD"],
+  props: ["i", "n", "a", "e", "s", "sD", "eD"],
   validations() {
     return {
       name: {
@@ -148,11 +149,8 @@ export default {
 
   methods: {
     closeModalWindow() {
-      const span = document.getElementById("canselButt");
       const modal = document.getElementById("myModalEdit");
-      span.onclick = function () {
-        modal.style.display = "none";
-      };
+      modal.style.display = "none";
     },
     editUserFromEditWindow() {
       const user = {
@@ -165,6 +163,7 @@ export default {
         expirationDate: this.expirationDate,
       };
       this.$emit("my-edited-user", user);
+
       const modal = document.getElementById("myModalEdit");
       modal.style.display = "none";
     },

@@ -82,8 +82,8 @@ export default {
   },
   methods: {
     editedUser(user) {
-      this.users = this.users.filter(u => u.id !=user.id)
-      this.users.push(user)
+      this.users = this.users.filter((u) => u.id !== user.id);
+      this.users.push(user);
       this.userForEdit = {}
     },
     editUser(user) {
@@ -133,7 +133,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #total {
   height: 40px;
   width: 100%;
@@ -144,7 +144,7 @@ export default {
 }
 .main {
   height: 100%;
-  width: 65%;
+  width: 50%;
   margin: 0 auto;
 }
 h2 {

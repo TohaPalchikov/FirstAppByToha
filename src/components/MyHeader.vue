@@ -103,4 +103,7 @@ header {
   text-decoration: none;
   color: white;
 }
+.menu a:hover {
+  color: rgb(238, 155, 2);
+}
 </style>

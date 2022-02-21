@@ -1,6 +1,12 @@
 <template>
   <tr>
-    <td>{{ user.name }}</td>
+    <td>
+      <router-link
+        class="router-link"
+        :to="{ name: 'userPage', params: { id: user.id } }"
+        >{{ user.name }}</router-link
+      >
+    </td>
     <td>{{ user.accName }}</td>
     <td>{{ user.eMail }}</td>
     <td>
@@ -19,7 +25,7 @@
 <script>
 import MyButton from "./MyButton.vue";
 export default {
-  name: 'Mytable',
+  name: "Mytable",
   props: ["user"],
   components: {
     MyButton,
@@ -34,13 +40,21 @@ export default {
     deleteUser() {
       this.$emit("my-delete-user", this.user.eMail);
     },
-    editUser(){
-      this.$emit("my-edit-user",this.user)
-    }
+    editUser() {
+      this.$emit("my-edit-user", this.user);
+    },
   },
 };
 </script>
-<style>
+<style scoped>
+.router-link {
+  text-decoration: none;
+  color: black;
+}
+.router-link:hover {
+  color: rgb(238, 155, 2);
+}
+
 #deleteBut {
   background: gray;
   margin: 3px;

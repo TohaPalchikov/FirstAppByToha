@@ -67,6 +67,7 @@
           <h3>Expiration date</h3>
           <input
             type="date"
+            :min="startDate"
             v-model="v$.expirationDate.$model"
             :class="
               { invalid: v$.expirationDate.$error } || {
